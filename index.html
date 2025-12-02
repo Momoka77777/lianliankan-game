@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动物连连看 - Animal Match Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>🐾 动物连连看 🐾</h1>
+        </header>
+        
+        <!-- Game Start Screen -->
+        <div id="start-screen" class="screen active">
+            <h2>选择难度 / Select Difficulty</h2>
+            <div class="difficulty-buttons">
+                <button class="difficulty-btn" data-level="easy">
+                    <span class="emoji">🌟</span>
+                    <span>简单 Easy</span>
+                    <span class="desc">6x6 网格</span>
+                </button>
+                <button class="difficulty-btn" data-level="medium">
+                    <span class="emoji">⭐</span>
+                    <span>中等 Medium</span>
+                    <span class="desc">8x8 网格</span>
+                </button>
+                <button class="difficulty-btn" data-level="hard">
+                    <span class="emoji">💫</span>
+                    <span>困难 Hard</span>
+                    <span class="desc">10x10 网格</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Game Play Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-info">
+                <div class="info-item">
+                    <span class="label">时间 Time:</span>
+                    <div class="timer-container">
+                        <div id="timer-bar" class="timer-bar"></div>
+                        <span id="timer-text" class="timer-text">0:00</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="label">分数 Score:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">剩余 Left:</span>
+                    <span id="pairs-left">0</span>
+                </div>
+            </div>
+            
+            <div class="tools-container">
+                <button id="shuffle-btn" class="tool-btn" title="洗牌 Shuffle">
+                    <span class="emoji">🔀</span>
+                    <span class="tool-text">洗牌</span>
+                    <span class="count" id="shuffle-count">3</span>
+                </button>
+                <button id="hint-btn" class="tool-btn" title="提示 Hint">
+                    <span class="emoji">💡</span>
+                    <span class="tool-text">提示</span>
+                    <span class="count" id="hint-count">3</span>
+                </button>
+                <button id="pause-btn" class="tool-btn" title="暂停 Pause">
+                    <span class="emoji">⏸️</span>
+                    <span class="tool-text">暂停</span>
+                </button>
+            </div>
+            
+            <!-- SVG Canvas for connection lines -->
+            <svg id="line-canvas" class="line-canvas"></svg>
+            
+            <!-- Game Board -->
+            <div id="game-board" class="game-board"></div>
+        </div>
+        
+        <!-- Game Over Screen -->
+        <div id="gameover-screen" class="screen">
+            <div class="result-content">
+                <h2 id="result-title">游戏结束 Game Over</h2>
+                <div class="result-stats">
+                    <p>最终分数 Final Score: <span id="final-score">0</span></p>
+                    <p>用时 Time: <span id="final-time">0:00</span></p>
+                </div>
+                <button id="restart-btn" class="difficulty-btn">
+                    <span class="emoji">🔄</span>
+                    <span>重新开始 Restart</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
