@@ -207,8 +207,8 @@ class LianliankanGame {
                 const newCol = col + dc;
                 
                 // Check bounds (allow one step outside the grid)
-                if (newRow < -1 || newRow > this.gridSize.rows || 
-                    newCol < -1 || newCol > this.gridSize.cols) {
+                if (newRow < -1 || newRow >= this.gridSize.rows + 1 || 
+                    newCol < -1 || newCol >= this.gridSize.cols + 1) {
                     continue;
                 }
                 
